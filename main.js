@@ -32,6 +32,6 @@ monBoutonDemarrer.addEventListener("click", function(){
   titreQuiz.textContent = 'Pronoms'; // siyeb le titre
   monBoutonDemarrer.remove() // siyeb le bouton
   const pronomArabe = pronomsPersonnels()
-  motArabe.textContent = pronomArabe
+  motArabe.textContent = `${pronomArabe} : `
 
 })
