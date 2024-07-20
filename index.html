@@ -13,7 +13,7 @@
     <h1 class="text-2xl p-8">Quiz Arabophone</h1>
   </header>
   
-  <div id="synthesePronoms">
+  <div class="h-1/4" id="synthesePronoms">
     <h1 class="text-2xl font-bold p-6">
       Les pronoms personnels ;
     </h1>
@@ -34,8 +34,8 @@
 
   <main class="">
 
-    <div class="flex justify-center items-center h-screen">
-      <div class="w-1/2 h-1/2 border rounded-3xl shadow-2xl">
+    <div class="flex justify-center items-center">
+      <div class="w-1/2 h-full border rounded-3xl shadow-2xl my-10">
         <h1 class="text-3xl p-8 text-center" id="titreQuiz">Quiz pronoms</h1>
         <div class="items-center p-4">
 
@@ -79,9 +79,18 @@
           </div>
           
         </div>
-        <div class="flex justify-center items-center">
-          <button class="border rounded-2xl w-1/2 justify-center h-10 bg-purple-400 hover:bg-purple-500 active:bg-purple-300 shadow-3xl" id="boutonDemarrer" >Commencer le Quiz</button>
+        <div class="flex justify-center items-center ">
+          <button class="border rounded-2xl w-1/2 justify-center h-full bg-purple-400 hover:bg-purple-500 active:bg-purple-300 shadow-3xl p-4" id="boutonDemarrer" >Commencer le Quiz</button>
         </div>
+
+        <div class="flex justify-center items-center ">
+          <button class="invisible border rounded-2xl w-1/2 justify-center h-full bg-purple-400 hover:bg-purple-500 active:bg-purple-300 shadow-3xl my-6 p-4" id="boutonConfirmer">Confirmer</button>
+        </div>
+
+        <div class="flex justify-center">
+          <span class="invisible text-2xl" id="timerSpan">20 ; 00</span>
+        </div>
+
       </div>
     </div>
 
