@@ -3,18 +3,19 @@ const main = document.querySelector('main');
 
 // Déclare un tableau d'objets contenant les pronoms en arabe et leur traduction en français
 const pronoms = [
-  { arabe: 'انا', francais: 'Je' },
-  { arabe: 'أنتَ', francais: 'Tu (Masculin)' },
-  { arabe: 'أَنتِ', francais: 'Tu (féminin)' },
-  { arabe: 'هُوَ', francais: 'Il' },
-  { arabe: 'هِيَ', francais: 'Elle' },
-  { arabe: 'نَحْنُ', francais: 'Nous' },
-  { arabe: 'أَنْتُم', francais: 'Vous (Masculin)' },
-  { arabe: 'أَنْتُنَّ', francais: 'Vous (Féminin)' },
-  { arabe: 'هُم', francais: 'Ils' },
-  { arabe: 'هُنَّ', francais: 'Elles' },
-  { arabe: 'هُما', francais: 'Ils/Elles (Deux)' }
+  { arabe: 'انا', francais: ['Je', 'Je '] },
+  { arabe: 'أنتَ', francais: ['Tu (Masculin)', 'Tu (Masculin) ', 'Tu Masculin', 'Tu Masculin '] },
+  { arabe: 'أَنتِ', francais: ['Tu (Féminin)', 'Tu (Féminin) ', 'Tu Féminin', 'Tu Féminin ']},
+  { arabe: 'هُوَ', francais:  ['Il', 'Il '] },
+  { arabe: 'هِيَ', francais:  ['Elle', 'Elle '] },
+  { arabe: 'نَحْنُ', francais: ['Nous', 'Nous '] },
+  { arabe: 'أَنْتُم', francais: ['Vous (Masculin)', 'Vous (Masculin) ', 'Vous Masculin', 'Vous Masculin '] },
+  { arabe: 'أَنْتُنَّ', francais: ['Vous (Féminin)', 'Vous (Féminin) ', 'Vous Féminin', 'Vous Féminin '] },
+  { arabe: 'هُم', francais: ['Ils', 'Ils '] },
+  { arabe: 'هُنَّ', francais: ['Elles', 'Elles '] },
+  { arabe: 'هُما', francais: ['Ils/Elles (Duel)', 'Ils/Elles (Duel) ', 'Ils Elles (Duel)', 'Ils Elles Duel'] }
 ];
+
 
 // Fonction pour sélectionner 6 pronoms aléatoires sans répétition
 function pronomsPersonnels() {
@@ -28,6 +29,7 @@ function pronomsPersonnels() {
 
 // Sélectionne 6 pronoms aléatoires
 const pronomsSelectionnes = pronomsPersonnels();
+pronomsSelectionnes.forEach(pronom => console.log(pronom.francais))
 
 // Fonction pour afficher le quiz dans la boîte correspondante
 function afficherQuizDansBox() {
@@ -47,6 +49,7 @@ function afficherQuizDansBox() {
       document.getElementById(`motArabe${i + 1}`).textContent = `${pronom.arabe} : `;
       const reponseJoueur = document.getElementById(`reponseJoueur${i + 1}`);
       reponseJoueur.style.visibility = 'visible';
+
     }
   });
 
@@ -63,41 +66,61 @@ function supprimerSynthesePronoms() {
 }
 
 // Fonction pour supprimer un texte spécifique lors du clic sur le bouton de démarrage
-function messageSupprimer() {
+function messageSupprimerLancementChronometre() {
   const monBoutonDemarrer = document.getElementById("boutonDemarrer");
   monBoutonDemarrer.addEventListener('click', function () {
     const texteAsupprimer = document.getElementById('texteAsupprimer');
     texteAsupprimer.remove();
+    chronometre();
   });
 }
 
 // Fonction pour vérifier les réponses des joueurs
 function checkReponse() {
-  for (let i = 0; i < 6; i++) {
-    const reponseJoueur = document.getElementById(`reponseJoueur${i + 1}`);
-  }
-  // Affiche toutes les valeurs de la propriété francais des objets sélectionnés
-  pronomsSelectionnes.forEach(pronom => console.log(pronom.francais));
+  const boutonConfirmer = document.getElementById('boutonConfirmer');
+  boutonConfirmer.addEventListener('click', function () {
+    for (let i = 0; i < 6; i++) {
+      const reponseJoueur = document.getElementById(`reponseJoueur${i + 1}`).value.trim();
+      const pronom = pronomsSelectionnes[i];
+      const estCorrect = pronom.francais.includes(reponseJoueur);
+      
+      const resultat = document.getElementById(`resultat${i + 1}`);
+      resultat.style.visibility = 'visible';
+      if (estCorrect) {
+        resultat.textContent = 'Correct';
+        resultat.style.color = 'green';
+      } else {
+        resultat.textContent = 'Incorrect';
+        resultat.style.color = 'red';
+      }
+    }
+    
+  });
 }
 
 function chronometre(){
 
   const timer = document.getElementById('timerSpan');
-  let tempsInitial = 20;
-  let tempsFinal = 0;
-  while(tempsInitial > tempsFinal){
-    tempsFinal -= 1;
+  const reponsesFinalsJoueur = document.querySelectorAll('input');
+  
+  let tempsRestant = 20;
+
+  const intervalId = setInterval(() => {
+
+    if(tempsRestant >= 0){
+      timer.innerHTML = `${tempsRestant} ; 00`;
+      tempsRestant -= 4;
+    } else{
+      reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true)
+      clearInterval(intervalId)
+    }
+  }, 1000);
+
   }
-  timer.textContent = tempsInitial;
 
-}
-
-setInterval(() => {
-  chronometre()
-}, 1000);
 
 // Appelle les fonctions pour mettre en place le quiz et les actions de suppression
 afficherQuizDansBox();
 supprimerSynthesePronoms();
-messageSupprimer();
+messageSupprimerLancementChronometre();
 checkReponse();
