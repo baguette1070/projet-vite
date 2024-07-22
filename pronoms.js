@@ -73,6 +73,8 @@ function messageSupprimerLancementChronometre() {
 // Fonction pour vérifier les réponses des joueurs
 function checkReponse() {
   const boutonConfirmer = document.getElementById('boutonConfirmer');
+  const count = document.getElementById('countPoint');
+  let point = 0;
   boutonConfirmer.addEventListener('click', function () {
     const reponsesFinalsJoueur = document.querySelectorAll('input[type="text"]');
     
@@ -82,10 +84,12 @@ function checkReponse() {
       
       if (reponsesPossibles.includes(reponseJoueur)) {
         reponsesFinalsJoueur[i].style.color = 'green';
+        point ++;
       } else {
         reponsesFinalsJoueur[i].style.color = 'red';
       }
     }
+    count.textContent = `Score : ${point}`;
     clearInterval(intervalId); // Arrête le chronomètre lorsque les réponses sont vérifiées
     reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true);
   });
@@ -100,7 +104,7 @@ function chronometre() {
   let tempsRestant = 20;
 
   intervalId = setInterval(() => {
-    if (tempsRestant >= 0) {
+    if (tempsRestant > 0) {
       timer.innerHTML = `${tempsRestant} ; 00`;
       tempsRestant -= 1;
     } else {
