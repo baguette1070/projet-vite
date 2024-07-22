@@ -16,7 +16,6 @@ const pronoms = [
   { arabe: 'هُما', francais: ['Ils/Elles (Duel)', 'Ils/Elles (Duel) ', 'Ils Elles (Duel)', 'Ils Elles Duel'] }
 ];
 
-
 // Fonction pour sélectionner 6 pronoms aléatoires sans répétition
 function pronomsPersonnels() {
   const indices = new Set();
@@ -29,7 +28,6 @@ function pronomsPersonnels() {
 
 // Sélectionne 6 pronoms aléatoires
 const pronomsSelectionnes = pronomsPersonnels();
-pronomsSelectionnes.forEach(pronom => console.log(pronom.francais))
 
 // Fonction pour afficher le quiz dans la boîte correspondante
 function afficherQuizDansBox() {
@@ -49,11 +47,8 @@ function afficherQuizDansBox() {
       document.getElementById(`motArabe${i + 1}`).textContent = `${pronom.arabe} : `;
       const reponseJoueur = document.getElementById(`reponseJoueur${i + 1}`);
       reponseJoueur.style.visibility = 'visible';
-
     }
   });
-
-
 }
 
 // Fonction pour supprimer la synthèse des pronoms lors du clic sur le bouton de démarrage
@@ -79,45 +74,38 @@ function messageSupprimerLancementChronometre() {
 function checkReponse() {
   const boutonConfirmer = document.getElementById('boutonConfirmer');
   boutonConfirmer.addEventListener('click', function () {
-    for (let i = 0; i < 6; i++) {
-      const reponseJoueur = document.getElementById(`reponseJoueur${i + 1}`).value.trim();
-      const pronom = pronomsSelectionnes[i];
-      const estCorrect = pronom.francais.includes(reponseJoueur);
+    const reponsesFinalsJoueur = document.querySelectorAll('input[type="text"]');
+    
+    for (let i = 0; i < pronomsSelectionnes.length; i++) {
+      const reponsesPossibles = pronomsSelectionnes[i].francais;
+      const reponseJoueur = reponsesFinalsJoueur[i].value.trim();
       
-      const resultat = document.getElementById(`resultat${i + 1}`);
-      resultat.style.visibility = 'visible';
-      if (estCorrect) {
-        resultat.textContent = 'Correct';
-        resultat.style.color = 'green';
+      if (reponsesPossibles.includes(reponseJoueur)) {
+        reponsesFinalsJoueur[i].style.color = 'green';
       } else {
-        resultat.textContent = 'Incorrect';
-        resultat.style.color = 'red';
+        reponsesFinalsJoueur[i].style.color = 'red';
       }
     }
-    
   });
+  pronomsSelectionnes.forEach(pronom => console.log(pronom.francais))
 }
 
 function chronometre(){
-
   const timer = document.getElementById('timerSpan');
-  const reponsesFinalsJoueur = document.querySelectorAll('input');
+  const reponsesFinalsJoueur = document.querySelectorAll('input[type="text"]');
   
   let tempsRestant = 20;
 
   const intervalId = setInterval(() => {
-
     if(tempsRestant >= 0){
       timer.innerHTML = `${tempsRestant} ; 00`;
-      tempsRestant -= 4;
+      tempsRestant -= 1;
     } else{
       reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true)
       clearInterval(intervalId)
     }
   }, 1000);
-
-  }
-
+}
 
 // Appelle les fonctions pour mettre en place le quiz et les actions de suppression
 afficherQuizDansBox();
