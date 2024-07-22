@@ -31,13 +31,12 @@ const pronomsSelectionnes = pronomsPersonnels();
 
 // Fonction pour afficher le quiz dans la boîte correspondante
 function afficherQuizDansBox() {
-  const titreQuiz = document.getElementById("titreQuiz");
+
   const monBoutonDemarrer = document.getElementById("boutonDemarrer");
   const boutonConfirmer = document.getElementById('boutonConfirmer');
   const timerSpan = document.getElementById('timerSpan');
-  
   monBoutonDemarrer.addEventListener("click", function () {
-    titreQuiz.textContent = 'Pronoms'; // Change le titre
+
     monBoutonDemarrer.remove(); // Enlève le bouton
     boutonConfirmer.style.visibility = 'visible';
     timerSpan.style.visibility = 'visible';
@@ -70,6 +69,29 @@ function messageSupprimerLancementChronometre() {
   });
 }
 
+function checkReponseSansBouton(){
+  const count = document.getElementById('countPoint');
+  let point = 0;
+  const boutonConfirmer = document.getElementById('boutonConfirmer');
+  const reponsesFinalsJoueur = document.querySelectorAll('input[type="text"]');
+    
+    for (let i = 0; i < pronomsSelectionnes.length; i++) {
+      const reponsesPossibles = pronomsSelectionnes[i].francais.map(r => r.toLowerCase());
+      const reponseJoueur = reponsesFinalsJoueur[i].value.trim().toLowerCase();
+      
+      if (reponsesPossibles.includes(reponseJoueur)) {
+        reponsesFinalsJoueur[i].style.color = 'green';
+        point ++;
+      } else {
+        reponsesFinalsJoueur[i].style.color = 'red';
+      }
+    }
+    count.textContent = `Score : ${point} / ${reponsesFinalsJoueur.length}`;
+    clearInterval(intervalId); // Arrête le chronomètre lorsque les réponses sont vérifiées
+    reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true);
+    boutonConfirmer.style.pointerEvents = 'none';
+}
+
 // Fonction pour vérifier les réponses des joueurs
 function checkReponse() {
   const boutonConfirmer = document.getElementById('boutonConfirmer');
@@ -81,17 +103,19 @@ function checkReponse() {
     for (let i = 0; i < pronomsSelectionnes.length; i++) {
       const reponsesPossibles = pronomsSelectionnes[i].francais;
       const reponseJoueur = reponsesFinalsJoueur[i].value.trim();
-      
-      if (reponsesPossibles.includes(reponseJoueur)) {
+          
+      if (reponsesPossibles.includes(reponseJoueur)) {     
         reponsesFinalsJoueur[i].style.color = 'green';
         point ++;
       } else {
         reponsesFinalsJoueur[i].style.color = 'red';
       }
     }
-    count.textContent = `Score : ${point}`;
+    count.textContent = `Score : ${point} / ${reponsesFinalsJoueur.length}`;
+    
     clearInterval(intervalId); // Arrête le chronomètre lorsque les réponses sont vérifiées
     reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true);
+    boutonConfirmer.style.pointerEvents = 'none'; 
   });
 }
 
@@ -104,12 +128,13 @@ function chronometre() {
   let tempsRestant = 20;
 
   intervalId = setInterval(() => {
-    if (tempsRestant > 0) {
+    if (tempsRestant >= 0) {
       timer.innerHTML = `${tempsRestant} ; 00`;
-      tempsRestant -= 1;
+      tempsRestant -= 4;
     } else {
       reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true);
       clearInterval(intervalId);
+      checkReponseSansBouton();
     }
   }, 1000);
 }
