@@ -109,8 +109,8 @@ function checkReponse() {
     const reponsesFinalsJoueur = document.querySelectorAll('input[type="text"]');
     
     for (let i = 0; i < pronomsSelectionnes.length; i++) {
-      const reponsesPossibles = pronomsSelectionnes[i].francais;
-      const reponseJoueur = reponsesFinalsJoueur[i].value.trim();
+      const reponsesPossibles = pronomsSelectionnes[i].francais.map(r => r.toLowerCase());
+      const reponseJoueur = reponsesFinalsJoueur[i].value.trim().toLowerCase();
       
       if (reponsesPossibles.includes(reponseJoueur)) {
         reponsesFinalsJoueur[i].style.color = 'green';
