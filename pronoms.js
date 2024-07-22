@@ -40,7 +40,7 @@ function afficherQuizDansBox() {
     titreQuiz.textContent = 'Pronoms'; // Change le titre
     monBoutonDemarrer.remove(); // Enlève le bouton
     boutonConfirmer.style.visibility = 'visible';
-    timerSpan.style.visibility = 'visible'
+    timerSpan.style.visibility = 'visible';
     // Affiche les 6 pronoms sur l'écran
     for (let i = 0; i < 6; i++) {
       const pronom = pronomsSelectionnes[i];
@@ -56,7 +56,7 @@ function supprimerSynthesePronoms() {
   const monBoutonDemarrer = document.getElementById("boutonDemarrer");
   monBoutonDemarrer.addEventListener('click', function () {
     const synthesePronoms = document.getElementById('synthesePronoms');
-    synthesePronoms.remove();
+    if (synthesePronoms) synthesePronoms.remove();
   });
 }
 
@@ -65,7 +65,7 @@ function messageSupprimerLancementChronometre() {
   const monBoutonDemarrer = document.getElementById("boutonDemarrer");
   monBoutonDemarrer.addEventListener('click', function () {
     const texteAsupprimer = document.getElementById('texteAsupprimer');
-    texteAsupprimer.remove();
+    if (texteAsupprimer) texteAsupprimer.remove();
     chronometre();
   });
 }
@@ -86,23 +86,26 @@ function checkReponse() {
         reponsesFinalsJoueur[i].style.color = 'red';
       }
     }
+    clearInterval(intervalId); // Arrête le chronomètre lorsque les réponses sont vérifiées
+    reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true);
   });
-  pronomsSelectionnes.forEach(pronom => console.log(pronom.francais))
 }
 
-function chronometre(){
+let intervalId;
+
+function chronometre() {
   const timer = document.getElementById('timerSpan');
   const reponsesFinalsJoueur = document.querySelectorAll('input[type="text"]');
   
   let tempsRestant = 20;
 
-  const intervalId = setInterval(() => {
-    if(tempsRestant >= 0){
+  intervalId = setInterval(() => {
+    if (tempsRestant >= 0) {
       timer.innerHTML = `${tempsRestant} ; 00`;
       tempsRestant -= 1;
-    } else{
-      reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true)
-      clearInterval(intervalId)
+    } else {
+      reponsesFinalsJoueur.forEach(reponse => reponse.disabled = true);
+      clearInterval(intervalId);
     }
   }, 1000);
 }
