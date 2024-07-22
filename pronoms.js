@@ -3,18 +3,19 @@ const main = document.querySelector('main');
 
 // Déclare un tableau d'objets contenant les pronoms en arabe et leur traduction en français
 const pronoms = [
-  { arabe: 'انا', francais: ['Je', 'Je '] },
-  { arabe: 'أنتَ', francais: ['Tu (Masculin)', 'Tu (Masculin) ', 'Tu Masculin', 'Tu Masculin '] },
-  { arabe: 'أَنتِ', francais: ['Tu (Féminin)', 'Tu (Féminin) ', 'Tu Féminin', 'Tu Féminin ']},
-  { arabe: 'هُوَ', francais:  ['Il', 'Il '] },
-  { arabe: 'هِيَ', francais:  ['Elle', 'Elle '] },
-  { arabe: 'نَحْنُ', francais: ['Nous', 'Nous '] },
-  { arabe: 'أَنْتُم', francais: ['Vous (Masculin)', 'Vous (Masculin) ', 'Vous Masculin', 'Vous Masculin '] },
-  { arabe: 'أَنْتُنَّ', francais: ['Vous (Féminin)', 'Vous (Féminin) ', 'Vous Féminin', 'Vous Féminin '] },
-  { arabe: 'هُم', francais: ['Ils', 'Ils '] },
-  { arabe: 'هُنَّ', francais: ['Elles', 'Elles '] },
-  { arabe: 'هُما', francais: ['Ils/Elles (Duel)', 'Ils/Elles (Duel) ', 'Ils Elles (Duel)', 'Ils Elles Duel'] }
+  { arabe: 'انا', francais: ['je', 'je '] },
+  { arabe: 'أنتَ', francais: ['tu (masculin)', 'tu (masculin) ', 'tu masculin', 'tu masculin ', 'tu m', 'tu m '] },
+  { arabe: 'أَنتِ', francais: ['tu (féminin)', 'tu (féminin) ', 'tu féminin', 'tu féminin ', 'tu f', 'tu f ', 'tu (feminin)', 'tu (feminin) ', 'tu feminin', 'tu feminin ']},
+  { arabe: 'هُوَ', francais:  ['il', 'il '] },
+  { arabe: 'هِيَ', francais:  ['elle', 'elle '] },
+  { arabe: 'نَحْنُ', francais: ['nous', 'nous '] },
+  { arabe: 'أَنْتُم', francais: ['vous (masculin)', 'vous (masculin) ', 'vous masculin', 'vous masculin ', 'vous m', 'vous m '] },
+  { arabe: 'أَنْتُنَّ', francais: ['vous (féminin)', 'vous (féminin) ', 'vous féminin', 'vous féminin ', 'vous f', 'vous f ', 'vous (feminin)', 'vous (feminin) ', 'vous feminin', 'vous feminin '] },
+  { arabe: 'هُم', francais: ['ils', 'ils '] },
+  { arabe: 'هُنَّ', francais: ['elles', 'elles '] },
+  { arabe: 'هُما', francais: ['ils/elles (duel)', 'ils/elles (duel) ', 'ils elles (duel)', 'ils elles duel', 'ils/elles duel'] }
 ];
+
 
 // Fonction pour sélectionner 6 pronoms aléatoires sans répétition
 function pronomsPersonnels() {
