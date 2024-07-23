@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./pronoms.html",
+    "./index.html",
     "./verbes.html",
+    "./adverbes.html",
     "./adjectifs.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],

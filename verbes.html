@@ -6,107 +6,123 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="bg-purple-200">
+<body class="">
 
-    <header class="bg-purple-300 ">
-        <h1 class="text-2xl p-8 text-center font-extrabold">Apprentissage arabe</h1>
-        <ul class="flex justify-evenly p-6 ">
-          <a href="pronoms.html"><li class=" hover:underline hover:text-purple-800">Pronoms</li></a>
-          <a href="verbes.html"><li class=" hover:underline hover:text-purple-800">Verbes</li></a>
-          <a href="adjectifs.html"><li class=" hover:underline hover:text-purple-800">Adjectifs</li></a>
-        </ul>
-    </header>
+<header class="bg-blue-500">
+    <h1 class="text-2xl p-8 text-center font-extrabold">Apprentissage arabe</h1>
+    <ul class="flex justify-evenly p-6">
+        <a href="index.html"><li class="hover:underline hover:text-white hover:scale-125">Pronoms</li></a>
+        <a href="verbes.html"><li class="hover:underline hover:text-white hover:scale-125">Verbes</li></a>
+        <a href="adjectifs.html"><li class="hover:underline hover:text-white hover:scale-125">Adjectifs</li></a>
+        <a href="adverbes.html"><li class="hover:underline hover:text-white hover:scale-125">Adverbes</li></a>
+    </ul>
+</header>
 
-    <div id="syntheseVerbes" class="">
-        <h1 class="text-2xl font-extrabold p-6">Verbes :</h1>
-        <div  class="grid grid-cols-3 p-10 gap-4 text-xl">
-            <p>ساعَدَ : Aider</p>
-            <p>كَتَبَ : Écrire</p>
-            <p>قَرَأَ : Lire</p>
-            <p>ذَهَبَ : Aller</p>
-            <p>جَاءَ : Venir</p>
-            <p>أَكَلَ : Manger</p>
-            <p>شَرِبَ : Boire</p>
-            <p>نَامَ : Dormir</p>
-            <p>جَلَسَ : S'asseoir</p>
-            <p>وَقَفَ : Se lever</p>
-            <p>رَكَضَ : courir</p>
-            <p>قَفَزَ : sauter</p>
-            <p>سَبَحَ : nager</p>
-            <p>رَسَمَ : dessiner</p>
-            <p>طَبَخَ : cuisiner</p>
-        </div>
+<div id="syntheseVerbes" class="flex justify-center">
+    <div class="w-3/4 bg-blue-200 shadow-xl rounded-xl p-6 mt-16">
+        <h1 class="text-2xl font-bold p-6 text-center">Les verbes :</h1>
+        <table class="w-full text-xl border-collapse border border-blue-400">
+            <tbody>
+                <tr>
+                    <td class="p-4 border border-blue-300">ساعَدَ : Aider</td>
+                    <td class="p-4 border border-blue-300">كَتَبَ : Écrire</td>
+                    <td class="p-4 border border-blue-300">قَرَأَ : Lire</td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-blue-300">ذَهَبَ : Aller</td>
+                    <td class="p-4 border border-blue-300">جَاءَ : Venir</td>
+                    <td class="p-4 border border-blue-300">أَكَلَ : Manger</td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-blue-300">شَرِبَ : Boire</td>
+                    <td class="p-4 border border-blue-300">نَامَ : Dormir</td>
+                    <td class="p-4 border border-blue-300">جَلَسَ : S'asseoir</td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-blue-300">وَقَفَ : Se lever</td>
+                    <td class="p-4 border border-blue-300">رَكَضَ : Courir</td>
+                    <td class="p-4 border border-blue-300">قَفَزَ : Sauter</td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-blue-400">سَبَحَ : Nager</td>
+                    <td class="p-4 border border-blue-400">رَسَمَ : Dessiner</td>
+                    <td class="p-4 border border-blue-400">طَبَخَ : Cuisiner</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    
-    <main class="">
+</div>
 
-        <div class="flex justify-center items-center">
-          <div class="w-1/2 h-full border rounded-3xl shadow-2xl my-10">
+<main class="">
+
+    <div class="flex justify-center items-center">
+        <div class="w-3/4 h-full border bg-blue-200 rounded-3xl shadow-2xl my-10">
             <h1 class="text-3xl p-8 text-center" id="titreQuiz">Quiz verbes</h1>
             <div class="items-center p-4">
-    
-              <div id="texteAsupprimer" class="">
-                <p class="text-center text-xl">Une fois le test commencé, vous ne pouvez plus revenir en arrière.</p>
-                <p class="text-center text-xl">Écrivez comme dans la leçon juste au dessus, en minuscule ou majuscule.</p>
-              </div>
-    
-              <div class="grid grid-cols-2 grid-rows-3">
-    
-              <div class="flex justify-evenly">
-                <p class="text-2xl p-4" name="motEnArabe" id="motArabe1"></p>
-                <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur1">
-              </div>
-    
-              <div class="flex justify-evenly">
-                <p class="text-2xl p-4" id="motArabe2"></p>
-                <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur2">
-              </div>
-    
-              <div class="flex justify-evenly">
-                <p class="text-2xl p-4" id="motArabe3"></p>
-                <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur3">
-              </div>
-    
-              <div class="flex justify-evenly">
-                <p class="text-2xl p-4" id="motArabe4"></p>
-                <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur4">
-              </div>
-    
-              <div class="flex justify-evenly">
-                <p class="text-2xl p-4" id="motArabe5"></p>
-                <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur5">
-              </div>
-    
-              <div class="flex justify-evenly">
-                <p class="text-2xl p-4" id="motArabe6"></p>
-                <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur6">
-              </div>
-    
-              </div>
-              
-            </div>
-            <div class="flex justify-center items-center ">
-              <button class="border rounded-2xl w-1/2 justify-center h-full bg-purple-400 hover:bg-purple-500 active:bg-purple-300 shadow-3xl p-4" id="boutonDemarrer" >Commencer le Quiz</button>
-            </div>
-    
-            <div class="flex justify-evenly">
-              <button class="invisible border rounded-2xl w-52 bg-purple-400 hover:bg-purple-500 active:bg-purple-300 shadow-3xl my-6 p-4" id="boutonConfirmer">Confirmer</button>
-              <button class="invisible border rounded-2xl w-52 bg-purple-400 hover:bg-purple-500 active:bg-purple-300 shadow-3xl my-6 p-4" id="boutonRestart">Recommencer</button>
-            </div>
-    
-            <div class="flex justify-center">
-              <span class="text-2xl" id="timerSpan"></span>
-            </div>
-    
-            <div class="p-4 flex justify-center">
-              <span class="text-2xl" id="countPoint"></span>
-            </div>
-    
-          </div>
-        </div>
 
-        <div id="app"></div>
-        <script src="/verbes.js"></script>
+                <div id="texteAsupprimer" class="">
+                    <p class="text-center text-xl">Une fois le test commencé, vous ne pouvez plus revenir en arrière.</p>
+                    <p class="text-center text-xl">Écrivez comme dans la leçon juste au dessus, en minuscule ou majuscule.</p>
+                </div>
+
+                <div class="grid grid-cols-2 grid-rows-3">
+
+                    <div class="flex justify-evenly">
+                        <p class="text-2xl p-4" name="motEnArabe" id="motArabe1"></p>
+                        <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur1">
+                    </div>
+
+                    <div class="flex justify-evenly">
+                        <p class="text-2xl p-4" id="motArabe2"></p>
+                        <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur2">
+                    </div>
+
+                    <div class="flex justify-evenly">
+                        <p class="text-2xl p-4" id="motArabe3"></p>
+                        <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur3">
+                    </div>
+
+                    <div class="flex justify-evenly">
+                        <p class="text-2xl p-4" id="motArabe4"></p>
+                        <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur4">
+                    </div>
+
+                    <div class="flex justify-evenly">
+                        <p class="text-2xl p-4" id="motArabe5"></p>
+                        <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur5">
+                    </div>
+
+                    <div class="flex justify-evenly">
+                        <p class="text-2xl p-4" id="motArabe6"></p>
+                        <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur6">
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="flex justify-center items-center">
+                <button class="border rounded-2xl w-1/2 justify-center h-full bg-blue-400 hover:bg-blue-500 active:bg-blue-300 shadow-3xl p-4" id="boutonDemarrer">Commencer le Quiz</button>
+            </div>
+
+            <div class="flex justify-evenly">
+                <button class="invisible border rounded-2xl w-52 bg-blue-400 hover:bg-blue-500 active:bg-blue-300 shadow-3xl my-6 p-4" id="boutonConfirmer">Confirmer</button>
+                <button class="invisible border rounded-2xl w-52 bg-blue-400 hover:bg-blue-500 active:bg-blue-300 shadow-3xl my-6 p-4" id="boutonRestart">Recommencer</button>
+            </div>
+
+            <div class="flex justify-center">
+                <span class="text-2xl" id="timerSpan"></span>
+            </div>
+
+            <div class="p-4 flex justify-center">
+                <span class="text-2xl" id="countPoint"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="app"></div>
+    <script src="/verbes.js"></script>
+</main>
 
 </body>
 </html>
