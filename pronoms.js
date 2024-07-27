@@ -168,4 +168,3 @@ supprimerSynthesePronoms();
 messageSupprimerLancementChronometre();
 checkReponse();
 restart();
-
