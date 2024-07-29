@@ -2,6 +2,7 @@
 export default {
   content: [
     "./index.html",
+    "./pronoms.html",
     "verbes/verbes.html",
     "adverbes/adverbes.html",
     "adjectifs/adjectifs.html",

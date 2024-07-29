@@ -1,129 +1,30 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Vite App</title>
-  </head>
-  <body class="">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="h-screen flex justify-center items-center">
+        <div class="border rounded-xl shadow-xl w-1/2 h-1/2">
+            <h1 class="p-4 text-center text-xl">Tu es interessé à apprendre l'arabe ? Tu es au bon endroit !</h1>
+            <p class="p-4 text-center text-lg">Ici, tu pourras étudier les bases de l'arabe classique et <br>t'entrainer en faisant des quiz !</p>
+            <div class="invisible h-4"></div>
+            <div class="invisible h-4"></div>
+            <div class="invisible h-4"></div>
+            <div class="invisible h-4"></div>
+            <div class="invisible h-4"></div>
+            <div class="justify-center flex">
+                <button class="bg-blue-500 rounded-xl p-5 hover:bg-blue-700 active:bg-blue-300"><a href="pronoms.html">Commencer le cours</a></button>
+            </div>
 
-  <header class="bg-blue-500 rounded-sm">
-    <h1 class="text-2xl p-8 text-center font-extrabold">Apprentissage arabe</h1>
-    <ul class="flex justify-evenly p-6 ">
-      <a href="index.html"><li class=" hover:underline hover:scale-125 hover:text-white">Pronoms</li></a>
-      <a href="/verbes/verbes.html"><li class=" hover:underline hover:scale-125 hover:text-white">Verbes</li></a>
-      <a href="/adjectifs/adjectifs.html"><li class=" hover:underline hover:scale-125 hover:text-white">Adjectifs</li></a>
-      <a href="/adverbes/adverbes.html"><li class="hover:underline hover:text-white hover:scale-125">Adverbes</li></a>
-    </ul>
-  </header>
-  
-  <div id="synthesePronoms" class="flex justify-center">
-    <div class="w-1/2 bg-blue-200 shadow-xl rounded-xl p-6 mt-16">
-      <h1 class="text-2xl font-bold p-6 text-center">
-        Les pronoms personnels :
-      </h1>
-      <table class="w-full text-xl border-collapse border border-blue-400">
-        <tbody>
-          <tr>
-            <td class="p-4 border border-blue-400">انا : Je</td>
-            <td class="p-4 border border-blue-400">أَنْتُم : Vous (Masculin)</td>
-          </tr>
-          <tr>
-            <td class="p-4 border border-blue-400">أنتَ : Tu (Masculin)</td>
-            <td class="p-4 border border-blue-400">أَنْتُنَّ : Vous (Féminin)</td>
-          </tr>
-          <tr>
-            <td class="p-4 border border-blue-400">أَنتِ : Tu (féminin)</td>
-            <td class="p-4 border border-blue-400">هُم : Ils</td>
-          </tr>
-          <tr>
-            <td class="p-4 border border-blue-400">هُوَ : Il</td>
-            <td class="p-4 border border-blue-400">هُنَّ : Elles</td>
-          </tr>
-          <tr>
-            <td class="p-4 border border-blue-400">هِيَ : Elle</td>
-            <td class="p-4 border border-blue-400">هُما : Ils/Elles (Duel)</td>
-          </tr>
-          <tr>
-            <tr>
-              <td class="p-4 border border-blue-400" colspan="2">نَحْنُ : Nous</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-    <main class="">
-      <div class="flex justify-center items-center ">
-        <div class="w-1/2 h-full border rounded-3xl bg-blue-200 shadow-2xl my-10">
-          <h1 class="text-3xl p-8 text-center" id="titreQuiz">Quiz pronoms</h1>
-          <div class="items-center p-4">
-  
-            <div id="texteAsupprimer" class="">
-              <p class="text-center text-xl">Une fois le test commencé, vous ne pouvez plus revenir en arrière.</p>
-              <p class="text-center text-xl">Écrivez comme dans la leçon juste au dessus, en minuscule ou majuscule.</p>
-            </div>
-  
-            <div class="grid grid-cols-2 grid-rows-3">
-  
-            <div class="flex justify-evenly">
-              <p class="text-2xl p-4" name="motEnArabe" id="motArabe1"></p>
-              <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur1">
-            </div>
-  
-            <div class="flex justify-evenly">
-              <p class="text-2xl p-4" id="motArabe2"></p>
-              <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur2">
-            </div>
-  
-            <div class="flex justify-evenly">
-              <p class="text-2xl p-4" id="motArabe3"></p>
-              <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur3">
-            </div>
-  
-            <div class="flex justify-evenly">
-              <p class="text-2xl p-4" id="motArabe4"></p>
-              <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur4">
-            </div>
-  
-            <div class="flex justify-evenly">
-              <p class="text-2xl p-4" id="motArabe5"></p>
-              <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur5">
-            </div>
-  
-            <div class="flex justify-evenly">
-              <p class="text-2xl p-4" id="motArabe6"></p>
-              <input class="invisible border rounded-2xl shadow-md h-10 p-4" autocomplete="off" type="text" id="reponseJoueur6">
-            </div>
-  
-            </div>
-            
-          </div>
-          <div class="flex justify-center items-center ">
-            <button class="border rounded-2xl w-1/2 justify-center h-full active:bg-blue-300 bg-blue-400 hover:bg-blue-500 shadow-3xl p-4" id="boutonDemarrer">Commencer le Quiz</button>
-          </div>
-  
-          <div class="flex justify-evenly">
-            <button class="invisible border rounded-2xl w-52 active:bg-blue-300 bg-blue-400 hover:bg-blue-500 shadow-3xl my-6 p-4" id="boutonConfirmer">Confirmer</button>
-            <button class="invisible border rounded-2xl w-52 active:bg-blue-300 bg-blue-400 hover:bg-blue-500  shadow-3xl my-6 p-4" id="boutonRestart">Recommencer</button>
-          </div>
-  
-          <div class="flex justify-center">
-            <span class="text-2xl" id="timerSpan"></span>
-          </div>
-  
-          <div class="p-4 flex justify-center">
-            <span class="text-2xl" id="countPoint"></span>
-          </div>
-  
         </div>
-      </div>
-  
-    </main>
+    </div>
+
     <div id="app"></div>
-    <script type="module" src="/pronoms.js"></script>
-    </body>
-  </html>
-  
+    <script></script>
+</body>
+</html>
