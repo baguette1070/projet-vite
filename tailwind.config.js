@@ -2,9 +2,9 @@
 export default {
   content: [
     "./index.html",
-    "./verbes.html",
-    "./adverbes.html",
-    "./adjectifs.html",
+    "verbes/verbes.html",
+    "adverbes/adverbes.html",
+    "adjectifs/adjectifs.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
