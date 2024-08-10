@@ -10,7 +10,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-bg': '#242121',
+        'custom-bg-box': '#453f3f',
+        'custom-bg-vert': "#0fbd09"
+      },
+    },
   },
   plugins: [],
 }

@@ -7,48 +7,48 @@
     <link rel="stylesheet" href="../style.css">
     <title>Vite App</title>
   </head>
-  <body class="">
+  <body class="bg-custom-bg ">
 
-  <header class="bg-blue-500 rounded-sm">
-    <h1 class="text-2xl p-8 text-center ">Apprentissage arabe</h1>
+  <header class="rounded-sm">
+    <h1 class="text-4xl p-8 text-center text-white ">Apprentissage arabe</h1>
     <ul class="flex justify-evenly p-6 ">
-      <a href="../homePage.html"><li class=" hover:underline hover:scale-125 hover:text-white">Accueil</li></a>
-      <a href="/verbes/verbes.html"><li class=" hover:underline hover:scale-125 hover:text-white">Verbes</li></a>
-      <a href="/adjectifs/adjectifs.html"><li class=" hover:underline hover:scale-125 hover:text-white">Adjectifs</li></a>
-      <a href="/adverbes/adverbes.html"><li class="hover:underline hover:text-white hover:scale-125">Adverbes</li></a>
+      <a href="../homePage.html"><li class="p-4 h-10 m-10 text-xl border rounded-3xl flex justify-center items-center hover:underline hover:scale-125 text-white hover:text-white">Accueil</li></a>
+      <a href="/verbes/verbes.html"><li class="flex justify-center items-center p-4 h-10 m-10 text-xl border rounded-3xl hover:underline hover:scale-125 text-white hover:text-white">Verbes</li></a>
+      <a href="/adjectifs/adjectifs.html"><li class="flex justify-center items-center p-4 h-10 m-10 text-xl border rounded-3xl hover:underline hover:scale-125 text-white hover:text-white">Adjectifs</li></a>
+      <a href="/adverbes/adverbes.html"><li class="flex justify-center items-center p-4 h-10 m-10 border rounded-3xl text-xl hover:underline hover:text-white text-white hover:scale-125">Adverbes</li></a>
     </ul>
   </header>
   
   <div id="synthesePronoms" class="flex justify-center">
-    <div class="w-1/2 bg-blue-200 shadow-xl rounded-xl p-6 mt-16">
+    <div class="w-1/2 bg-white shadow-xl rounded-xl p-6 mt-16">
       <h1 class="text-2xl font-bold p-6 text-center">
         Les pronoms personnels :
       </h1>
-      <table class="w-full text-xl border-collapse border border-blue-400">
+      <table class="w-full text-xl border-collapse border border-black">
         <tbody>
           <tr>
-            <td class="p-4 border border-blue-400">انا : Je</td>
-            <td class="p-4 border border-blue-400">أَنْتُم : Vous (Masculin)</td>
+            <td class="p-4 border border-black ">انا : Je</td>
+            <td class="p-4 border border-black ">أَنْتُم : Vous (Masculin)</td>
           </tr>
           <tr>
-            <td class="p-4 border border-blue-400">أنتَ : Tu (Masculin)</td>
-            <td class="p-4 border border-blue-400">أَنْتُنَّ : Vous (Féminin)</td>
+            <td class="p-4 border border-black ">أنتَ : Tu (Masculin)</td>
+            <td class="p-4 border border-black ">أَنْتُنَّ : Vous (Féminin)</td>
           </tr>
           <tr>
-            <td class="p-4 border border-blue-400">أَنتِ : Tu (féminin)</td>
-            <td class="p-4 border border-blue-400">هُم : Ils</td>
+            <td class="p-4 border border-black">أَنتِ : Tu (féminin)</td>
+            <td class="p-4 border border-black">هُم : Ils</td>
           </tr>
           <tr>
-            <td class="p-4 border border-blue-400">هُوَ : Il</td>
-            <td class="p-4 border border-blue-400">هُنَّ : Elles</td>
+            <td class="p-4 border border-black">هُوَ : Il</td>
+            <td class="p-4 border border-black">هُنَّ : Elles</td>
           </tr>
           <tr>
-            <td class="p-4 border border-blue-400">هِيَ : Elle</td>
-            <td class="p-4 border border-blue-400">هُما : Ils/Elles (Duel)</td>
+            <td class="p-4 border border-black">هِيَ : Elle</td>
+            <td class="p-4 border border-black">هُما : Ils/Elles (Duel)</td>
           </tr>
           <tr>
             <tr>
-              <td class="p-4 border border-blue-400" colspan="2">نَحْنُ : Nous</td>
+              <td class="p-4 border border-black" colspan="2">نَحْنُ : Nous</td>
             </tr>
           </tbody>
         </table>
@@ -57,7 +57,7 @@
   
     <main class="">
       <div class="flex justify-center items-center ">
-        <div class="w-1/2 h-full border rounded-3xl bg-blue-200 shadow-2xl my-10">
+        <div class="w-1/2 h-full border rounded-3xl bg-white shadow-2xl my-10">
           <h1 class="text-3xl p-8 text-center" id="titreQuiz">Quiz pronoms</h1>
           <div class="items-center p-4">
   
@@ -102,12 +102,12 @@
             
           </div>
           <div class="flex justify-center items-center ">
-            <button class="border rounded-2xl w-1/2 justify-center h-full active:bg-blue-300 bg-blue-400 hover:bg-blue-500 shadow-3xl p-4" id="boutonDemarrer">Commencer le Quiz</button>
+            <button class="border rounded-2xl w-1/2 justify-center h-full bg-custom-bg hover:bg-black active:bg-gray-600 text-white shadow-3xl p-4" id="boutonDemarrer">Commencer le Quiz</button>
           </div>
   
           <div class="flex justify-evenly">
-            <button class="invisible border rounded-2xl w-52 active:bg-blue-300 bg-blue-400 hover:bg-blue-500 shadow-3xl my-6 p-4" id="boutonConfirmer">Confirmer</button>
-            <button class="invisible border rounded-2xl w-52 active:bg-blue-300 bg-blue-400 hover:bg-blue-500  shadow-3xl my-6 p-4" id="boutonRestart">Recommencer</button>
+            <button class="invisible border rounded-2xl w-52 bg-custom-bg active:bg-gray-600 hover:bg-black text-white shadow-3xl my-6 p-4" id="boutonConfirmer">Confirmer</button>
+            <button class="invisible border rounded-2xl w-52 bg-custom-bg active:bg-gray-600 hover:bg-black text-white shadow-3xl my-6 p-4" id="boutonRestart">Recommencer</button>
           </div>
   
           <div class="flex justify-center">
